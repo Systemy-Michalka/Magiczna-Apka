@@ -1,4 +1,6 @@
-# ilość ledów głośności
+from tkinter import Label, font, Frame
+
+# liczba ledów głośności
 LEDS = 8
 
 # maksymalny poziom głośności
@@ -6,6 +8,34 @@ MAX_VOLUME = 100
 
 # ilość aktualnie zaświeconych ledów
 current_leds = 0
+
+# komponenty ledów
+volume_leds = []
+
+# kolory ledów
+TURN_OFF_COLOR = "#696969"
+TURN_ON_COLOR = "#0063c7"
+
+
+def init_gui(frame):
+    # tytuł sekcji
+    title = Label(frame, text="Volume", font=font.Font(size=20))
+    title.grid(column=0, row=0)
+
+    # kontener na ledy
+    leds_frame = Frame(frame)
+    leds_frame.grid(column=0, row=1)
+
+    # tworzenie i ustawianie ledów
+    for col in range(8):
+        led = Label(leds_frame, text='', width=2, height=1, bg=TURN_OFF_COLOR)
+        led.grid(column=col, row=1)
+        volume_leds.append(led)
+        leds_frame.grid_columnconfigure(col, minsize=40)
+
+    # testowe wywołanie
+    # todo usunąć testowe wywołanie
+    set_volume_leds(34)
 
 
 def set_volume_leds(volume: int):
@@ -32,34 +62,10 @@ def set_volume_leds(volume: int):
 
 def update_leds():
     """Aktualizuje LEDy. Zapala i gasi odpowiednie LEDy."""
-
-    # na razie LEDy są wyświetlane w konsoli
-    # todo zapalić LEDy w GUI
+    # zaświeć
     for i in range(current_leds):
-        print("☻", end="")
-    for i in range(LEDS - current_leds):
-        print("☺", end="")
-    print()
+        volume_leds[i].configure(background=TURN_ON_COLOR)
 
-
-def test():
-    print("356 ", end=" ")
-    set_volume_leds(356)
-
-    print("66  ", end=" ")
-    set_volume_leds(66)
-
-    print("10  ", end=" ")
-    set_volume_leds(10)
-
-    print("10  ", end=" ")
-    set_volume_leds(22)
-
-    print("34  ", end=" ")
-    set_volume_leds(34)
-
-    print("100 ", end=" ")
-    set_volume_leds(100)
-
-    print("-123", end=" ")
-    set_volume_leds(-123)
+    # zgaś
+    for i in range(current_leds, LEDS):
+        volume_leds[i].configure(background=TURN_OFF_COLOR)
