@@ -7,7 +7,7 @@ from tkinter import Label, font, Frame
 
 def init_gui(frame):
     text = set_data_usage(show_host_data())
-    title = Label(frame, text="System usage", font=font.Font(size=20))
+    title = Label(frame, text="System usage", font=font.Font(size=30))
     title.grid(column=0, row=0)
 
     usage_frame = Frame(frame)
