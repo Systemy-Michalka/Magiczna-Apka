@@ -3,10 +3,10 @@ from SystemUsage import show_host_data
 
 from tkinter import Label, font, Frame
 
-text =''
+
 
 def init_gui(frame):
-    # tytuł sekcji
+    text = set_data_usage(show_host_data())
     title = Label(frame, text="System usage", font=font.Font(size=20))
     title.grid(column=0, row=0)
 
@@ -16,7 +16,14 @@ def init_gui(frame):
     screen.grid(column=1, row=0)
     usage_frame.grid_columnconfigure(1, minsize=40)
 
+    
 
-def set_data_usage():
-
+def set_data_usage(dic):
+    text ="Cpu: "
+    text += str(dic['cpu']) + "%"
+    text += " Temperature: "
+    text += str(dic['temperature']) + "C"
+    text += " Memory "
+    text += str(dic['memory']) + "%"
+    return text
 
