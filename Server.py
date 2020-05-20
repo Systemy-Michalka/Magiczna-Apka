@@ -4,7 +4,7 @@ import sys
 
 def main():
 
-    ser = SerialPort(f"/dev/pts/{sys.argv[1]}", timeout=0)
+    ser = SerialPort(sys.argv[1], timeout=0)
     ser.start()
 
 
