@@ -2,6 +2,10 @@ from tkinter import *
 from tkinter import font
 
 import VolumeDisplay
+from SerialPort import SerialPort
+
+ser = SerialPort(f"/dev/pts/{sys.argv[1]}", timeout=0)
+ser.start()
 
 window = Tk()
 window.title("Host")
@@ -14,9 +18,15 @@ for row in range(6):
     frame.update()
     frames.append(frame)
 
+
+def get_scale(volume: str):
+    print(volume)
+    ser.write(volume.encode())
+
 # zadanie 1
-label1 = Label(frames[0], text="Zadanie 1", font=font.Font(size=20))
-label1.grid(column=0, row=0)
+
+scale1 = Scale(frames[0], orient=HORIZONTAL, command=get_scale)
+scale1.grid(column=0, row=0)
 
 # zadanie 2
 VolumeDisplay.init_gui(frames[1])
