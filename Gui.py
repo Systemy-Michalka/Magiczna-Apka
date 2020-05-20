@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import font
 
 import VolumeDisplay
+import SystemUsageDisplay
 
 window = Tk()
 window.title("Host")
@@ -30,8 +31,7 @@ label4 = Label(frames[3], text="Zadanie 4", font=font.Font(size=20))
 label4.grid(column=0, row=0)
 
 # zadanie 5
-label5 = Label(frames[4], text="Zadanie 5", font=font.Font(size=20))
-label5.grid(column=0, row=0)
+SystemUsageDisplay.init_gui(frames[4])
 
 # zadanie 6
 label6 = Label(frames[5], text="Zadanie 6", font=font.Font(size=20))

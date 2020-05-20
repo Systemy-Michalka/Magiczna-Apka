@@ -8,4 +8,4 @@ def show_mixer():
     return volumes[0]
 
 if __name__ == '__main__':
-    show_mixer();
+    show_mixer()
