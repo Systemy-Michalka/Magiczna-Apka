@@ -1,5 +1,8 @@
 import os
 
+import SystemVolume
+from VolumeDisplay import set_volume_leds
+
 
 class Resolver:
 
@@ -15,7 +18,7 @@ class Resolver:
         os.system(f'amixer set Master {message}%')
 
     def zad2(self, message):
-        pass
+        set_volume_leds(int(message))
 
     def zad3(self, message):
         pass

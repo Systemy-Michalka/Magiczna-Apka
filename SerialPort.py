@@ -33,11 +33,10 @@ class SerialPort(threading.Thread):
         while True:
             key = self.port.read(size=8)
             if len(key) > 0:
-
+                print(f'key: {key}')
                 while True:
                     data = self.port.read(size=8)
                     if len(data) > 0:
+                        self.resolver.on_message(key, data)
+                        print(f'Odczytane: {data}')
                         break
-
-                self.resolver.on_message(key, data)
-                print(f'Odczytane: {data}')

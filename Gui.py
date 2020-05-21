@@ -1,8 +1,9 @@
+import threading
 import time
 from tkinter import *
 from tkinter import font
 
-import VolumeDisplay
+from VolumeDisplay import init_gui
 from Resolver import Resolver
 from SerialPort import SerialPort
 
@@ -28,11 +29,13 @@ def get_scale(volume: str):
 
 # zadanie 1
 
+
 scale1 = Scale(frames[0], orient=HORIZONTAL, command=get_scale)
+scale1.set(80)
 scale1.grid(column=0, row=0)
 
 # zadanie 2
-VolumeDisplay.init_gui(frames[1])
+init_gui(frames[1])
 
 # zadanie 3
 label3 = Label(frames[2], text="Zadanie 3", font=font.Font(size=20))
@@ -51,3 +54,4 @@ label6 = Label(frames[5], text="Zadanie 6", font=font.Font(size=20))
 label6.grid(column=0, row=0)
 
 window.mainloop()
+
