@@ -1,10 +1,12 @@
+import time
 from tkinter import *
 from tkinter import font
 
 import VolumeDisplay
+from Resolver import Resolver
 from SerialPort import SerialPort
 
-ser = SerialPort(sys.argv[1], timeout=0)
+ser = SerialPort(sys.argv[1], Resolver(), timeout=0)
 ser.start()
 
 window = Tk()
@@ -20,6 +22,7 @@ for row in range(6):
 
 
 def get_scale(volume: str):
+    ser.write(b'zad1')
     print(volume)
     ser.write(volume.encode())
 
