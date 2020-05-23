@@ -19,7 +19,7 @@ TURN_OFF_COLOR = "#696969"
 TURN_ON_COLOR = "#0063c7"
 
 
-def init_gui(frame):
+def init_volume_display_gui(frame):
     # tytuł sekcji
     title = Label(frame, text="Volume", font=font.Font(size=20))
     title.grid(column=0, row=0)

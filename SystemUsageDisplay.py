@@ -5,7 +5,7 @@ from tkinter import Label, font, Frame
 import time
 
 
-def init_gui(frame):
+def init_system_usage_gui(frame):
 
     # testowe wywołanie
     # todo usunąć testowe wywołanie

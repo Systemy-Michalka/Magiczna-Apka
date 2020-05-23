@@ -3,7 +3,9 @@ import time
 from tkinter import *
 from tkinter import font
 
-from VolumeDisplay import init_gui
+from SystemUsageDisplay import init_system_usage_gui
+from TakeActions import init_take_actions_gui
+from VolumeDisplay import init_volume_display_gui
 from Resolver import Resolver
 from SerialPort import SerialPort
 
@@ -36,17 +38,17 @@ scale1.set(80)
 scale1.grid(column=0, row=0)
 
 # zadanie 2
-init_gui(frames[1])
+init_volume_display_gui(frames[1])
 
 # zadanie 3
 label3 = Label(frames[2], text="Zadanie 3", font=font.Font(size=20))
 label3.grid(column=0, row=0)
 
 # zadanie 4
-TakeActions.init_gui(frames[3])
+init_take_actions_gui(frames[3])
 
 # zadanie 5
-SystemUsageDisplay.init_gui(frames[4])
+init_system_usage_gui(frames[4])
 
 # zadanie 6
 label6 = Label(frames[5], text="Zadanie 6", font=font.Font(size=20))
