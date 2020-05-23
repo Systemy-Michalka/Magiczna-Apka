@@ -1,4 +1,4 @@
-# from SystemVolume import show_mixer
+from SystemVolume import show_mixer
 from tkinter import Label, font, Frame
 
 
