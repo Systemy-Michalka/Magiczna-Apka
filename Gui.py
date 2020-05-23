@@ -1,9 +1,14 @@
+import threading
+import time
 from tkinter import *
 from tkinter import font
 
-import VolumeDisplay
-import SystemUsageDisplay
-import TakeActions
+from VolumeDisplay import init_gui
+from Resolver import Resolver
+from SerialPort import SerialPort
+
+ser = SerialPort(sys.argv[1], Resolver(), timeout=0)
+ser.start()
 
 
 window = Tk()
@@ -17,12 +22,21 @@ for row in range(6):
     frame.update()
     frames.append(frame)
 
+
+def get_scale(volume: str):
+    ser.write(b'zad1')
+    print(volume)
+    ser.write(volume.encode())
+
 # zadanie 1
-label1 = Label(frames[0], text="Zadanie 1", font=font.Font(size=20))
-label1.grid(column=0, row=0)
+
+
+scale1 = Scale(frames[0], orient=HORIZONTAL, command=get_scale)
+scale1.set(80)
+scale1.grid(column=0, row=0)
 
 # zadanie 2
-VolumeDisplay.init_gui(frames[1])
+init_gui(frames[1])
 
 # zadanie 3
 label3 = Label(frames[2], text="Zadanie 3", font=font.Font(size=20))
@@ -39,3 +53,4 @@ label6 = Label(frames[5], text="Zadanie 6", font=font.Font(size=20))
 label6.grid(column=0, row=0)
 
 window.mainloop()
+

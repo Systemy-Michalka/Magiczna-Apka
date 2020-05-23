@@ -1,6 +1,7 @@
 # from SystemVolume import show_mixer
 from tkinter import Label, font, Frame
 
+
 # liczba ledów głośności
 LEDS = 8
 
@@ -34,9 +35,8 @@ def init_gui(frame):
         volume_leds.append(led)
         leds_frame.grid_columnconfigure(col, minsize=40)
 
-    # testowe wywołanie
-    # todo usunąć testowe wywołanie
-    # set_volume_leds(show_mixer())
+    # pierwsze wywołanie
+    set_volume_leds(show_mixer())
 
 
 def set_volume_leds(volume: int):
