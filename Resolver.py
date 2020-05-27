@@ -2,6 +2,7 @@ import os
 
 import SystemVolume
 from VolumeDisplay import set_volume_leds
+from SystemUsageDisplay import update_cpu, update_memory, update_temperature
 
 
 class Resolver:
@@ -9,6 +10,8 @@ class Resolver:
     def on_message(self, key, message):
         key = str(key, "utf-8")
         message = str(message, "utf-8")
+
+        print("keyyyyyyyyyyy {}".format(key))
         if hasattr(self, key):
             getattr(self, key)(message)
         else:
@@ -20,8 +23,15 @@ class Resolver:
     def zad2(self, message):
         set_volume_leds(int(message))
 
-    def zad3(self, message):
-        pass
+    def T(self, message):
+        update_temperature(message)
+
+    def M(self, message):
+        update_memory(message)
+
+    def C(self, message):
+
+        update_cpu(message)
 
     def zad4(self, message):
         pass
