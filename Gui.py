@@ -41,14 +41,15 @@ scale1.grid(column=0, row=0)
 init_volume_display_gui(frames[1])
 
 # zadanie 3
-label3 = Label(frames[2], text="Zadanie 3", font=font.Font(size=20))
-label3.grid(column=0, row=0)
+init_system_usage_gui(frames[2])
 
 # zadanie 4
 init_take_actions_gui(frames[3])
 
 # zadanie 5
-init_system_usage_gui(frames[4])
+label5 = Label(frames[4], text="Zadanie 5", font=font.Font(size=20))
+label5.grid(column=0, row=0)
+
 
 # zadanie 6
 label6 = Label(frames[5], text="Zadanie 6", font=font.Font(size=20))
