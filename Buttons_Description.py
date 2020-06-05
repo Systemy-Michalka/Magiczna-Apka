@@ -15,28 +15,28 @@ def init_describe_button_gui(frame):
 
 
     def describe_button1():
-        var.set("1")
+        var.set("Uruchom przeglądarkę WWW")
 
     def describe_button2():
-        var.set("2")
+        var.set("Edytor tekstu Vi")
 
     def describe_button3():
-        var.set("3")
+        var.set("Uruchom program mc")
 
     def describe_button4():
-        var.set("4")
+        var.set("Uruchom terminal")
 
     def describe_button5():
-        var.set("5")
+        var.set("Uruchom kalendarz")
 
     def describe_button6():
-        var.set("6")
+        var.set("Uruchom skrypt1")
 
     def describe_button7():
-        var.set("7")
+        var.set("Uruchom skrypt2")
     
     def describe_button8():
-        var.set("8")
+        var.set("Uruchom skrypt3")
 
     #creating buttons
     Button1 = Button(frame, text="1", command = describe_button1)
