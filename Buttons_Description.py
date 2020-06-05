@@ -1,86 +1,59 @@
-#Robione bez dostępu do sprzętu (czyt. "niesprawdzone w praktyce")
-
-from RPLCD import CharLCD
-import requests
-import time
-import RPi.GPIO as GPIO
-
-lcd = CharLCD(cols=16, rows=2, pin_rs=37, pin_e=35, pins_data=[40, 38, 36, 32, 33, 31, 29, 23])
-
-Pin1 = 3
-Pin2 = 5
-Pin3 = 7
-Pin4 = 8
-Pin5 = 10
-Pin6 = 11
-Pin7 = 12
-Pin8 = 13
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(Pin1,GPIO.IN)
-GPIO.setup(Pin2,GPIO.IN)
-GPIO.setup(Pin3,GPIO.IN)
-GPIO.setup(Pin4,GPIO.IN)
-GPIO.setup(Pin5,GPIO.IN)
-GPIO.setup(Pin6,GPIO.IN)
-GPIO.setup(Pin7,GPIO.IN)
-GPIO.setup(Pin8,GPIO.IN)
+from tkinter import *
 
 
-while True:
-    if(GPIO.input(Pin1) == True):#S1 na ciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin1, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom przeglądarkę WWW")
-            
-    elif(GPIO.input(Pin2) == True):#S2 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin2, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Edytor tekstu Vi")
-            
-    elif(GPIO.input(Pin3) == True):#S3 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin3, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom program mc")
-            
-    elif(GPIO.input(Pin4) == True):#S4 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin4, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom terminal")
-            
-    elif(GPIO.input(Pin5) == True):#S5 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin5, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom kalendarz")
-            
-    elif(GPIO.input(Pin6) == True):#S6 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin6, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom wybrane polecenie/skrypt w terminalu")
-            
-    elif(GPIO.input(Pin7) == True):#S7 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin7, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom wybrane polecenie/skrypt w terminalu")
-            
-    elif(GPIO.input(Pin8) == True):#S8 naciśnięty ponad 1,1 s
-        start = time.time()
-        GPIO.wait_for_edge(Pin8, GPIO.FALLING)
-        stop = time.time() - start
-        if(stop >= 1.1):
-            lcd.write_string("Uruchom wybrane polecenie/skrypt w terminalu")
-            
+def init_describe_button_gui(frame):
+    # tytuł sekcji
+    var = StringVar()
+    title = Label(frame, text="Button Descriptions", font=font.Font(size=20))
+    title.grid(column=0, row=0)
+    screen = Label(frame, text="", font=font.Font(size=20))
+    screen.grid(column=0, row=1)
+    title3 = Label(frame, textvariable=var, font=font.Font(size=20))
+    title3.grid(column=0, row=2)
+    
+    var.set("Description")
+
+
+    def describe_button1():
+        var.set("1")
+
+    def describe_button2():
+        var.set("2")
+
+    def describe_button3():
+        var.set("3")
+
+    def describe_button4():
+        var.set("4")
+
+    def describe_button5():
+        var.set("5")
+
+    def describe_button6():
+        var.set("6")
+
+    def describe_button7():
+        var.set("7")
+    
+    def describe_button8():
+        var.set("8")
+
+    #creating buttons
+    Button1 = Button(frame, text="1", command = describe_button1)
+    Button2 = Button(frame, text="2", command = describe_button2)
+    Button3 = Button(frame, text="3", command = describe_button3)
+    Button4 = Button(frame, text="4", command = describe_button4)
+    Button5 = Button(frame, text="5", command = describe_button5)
+    Button6 = Button(frame, text="6", command = describe_button6)
+    Button7 = Button(frame, text="7", command = describe_button7)
+    Button8 = Button(frame, text="8", command = describe_button8)
+
+    #placeing buttons
+    Button1.place(x=0, y=40)
+    Button2.place(x=20, y=40)
+    Button3.place(x=40, y=40)
+    Button4.place(x=60, y=40)
+    Button5.place(x=80, y=40)
+    Button6.place(x=100, y=40)
+    Button7.place(x=120, y=40)
+    Button8.place(x=140, y=40)
