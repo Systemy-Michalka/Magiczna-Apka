@@ -11,7 +11,6 @@ class Resolver:
         key = str(key, "utf-8")
         message = str(message, "utf-8")
 
-        print("keyyyyyyyyyyy {}".format(key))
         if hasattr(self, key):
             getattr(self, key)(message)
         else:
