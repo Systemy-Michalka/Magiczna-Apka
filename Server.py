@@ -15,9 +15,9 @@ def main():
 
     def thread_loop():
         threading.Timer(2.0, thread_loop).start()
-        ask_for_usage()
+        # ask_for_usage()
         time.sleep(0.5)
-        ask_for_volume()
+        # ask_for_volume()
 
     def ask_for_volume():
         # threading.Timer(0.7, ask_for_volume).start()
