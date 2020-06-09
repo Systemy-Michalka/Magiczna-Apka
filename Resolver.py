@@ -17,7 +17,7 @@ class Resolver:
             print(f"There is no {key} command")
 
     def zad1(self, message):
-        os.system(f'amixer set Master {message}%')
+        os.system(f'amixer set Master {message}% > /dev/null')
 
     def zad2(self, message):
         set_volume_leds(int(message))
