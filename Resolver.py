@@ -36,7 +36,7 @@ class Resolver:
         if message == 3:  # przeglądarka WWW
             os.system("firefox") # lub inna zainstalowana na danej maszynie
         elif message == 12:
-            os.system("vi")
+            os.system("echo Test na produkcji")
         elif message == 48:
             os.system("mc")  # na Fedorze konieczne instalowanie odpowiedniego pakietu
         elif message == 192:

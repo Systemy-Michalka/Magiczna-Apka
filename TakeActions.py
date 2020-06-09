@@ -1,6 +1,6 @@
 from tkinter import Label, font, Frame, Button
 import os
-
+from functools import partial
 actions_lights = []  # lista na kontrolki sygnalizujące użycie danej akcji
 
 # kolory kontrolek
@@ -36,10 +36,9 @@ def init_take_actions_gui(frame, serial_port):
         serial_port.write(action_number.encode())
 
     # tworzenie i ustawianie ledów
-    light = [8]
     for col in range(8):
         # light = Label(actions_frame, text='S'+str(col+1), width=2, height=1, bg=TURN_OFF_COLOR)
-        light = Button(text='S'+str(col+1), command= (lambda: sender_helper(ACTION_CODES[col])), background=TURN_ON_COLOR)
+        light = Button(text='S'+str(col+1), command=partial(sender_helper, ACTION_CODES[col]), background=TURN_ON_COLOR)
         light.grid(column=col, row=1)
         actions_lights.append(light)
         actions_frame.grid_columnconfigure(col, minsize=40)
