@@ -44,7 +44,7 @@ init_volume_display_gui(frames[1])
 init_system_usage_gui(frames[2])
 
 # zadanie 4
-init_take_actions_gui(frames[3])
+init_take_actions_gui(frames[3], ser)
 
 # zadanie 5
 label5 = Label(frames[4], text="Zadanie 5", font=font.Font(size=20))

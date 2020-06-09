@@ -29,11 +29,29 @@ class Resolver:
         update_memory(message)
 
     def C(self, message):
-
         update_cpu(message)
 
     def zad4(self, message):
+        message = int(message)
+        if message == 3:  # przeglądarka WWW
+            os.system("firefox") # lub inna zainstalowana na danej maszynie
+        elif message == 12:
+            os.system("echo Test na produkcji")
+        elif message == 48:
+            os.system("mc")  # na Fedorze konieczne instalowanie odpowiedniego pakietu
+        elif message == 192:
+            os.system("gnome-terminal")
+        elif message == 15:
+                os.system("cal")
+        elif message == 60:
+            os.system("bash script1.sh") # wybrane polecenie/skrypt w terminalu
+        elif message == 240:
+            os.system("bash script2.sh") # wybrane polecenie/skrypt w terminalu
+        elif message == 195:
+            os.system("bash script3.sh") # wybrane polecenie/skrypt w terminalu
         pass
+
+    
 
     def zad5(self, message):
         pass
