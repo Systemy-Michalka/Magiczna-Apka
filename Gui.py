@@ -6,6 +6,7 @@ from tkinter import font
 from SystemUsageDisplay import init_system_usage_gui
 from TakeActions import init_take_actions_gui
 from VolumeDisplay import init_volume_display_gui
+from Buttons_Description import init_describe_button_gui
 from Resolver import Resolver
 from SerialPort import SerialPort
 
@@ -47,8 +48,7 @@ init_system_usage_gui(frames[2])
 init_take_actions_gui(frames[3], ser)
 
 # zadanie 5
-label5 = Label(frames[4], text="Zadanie 5", font=font.Font(size=20))
-label5.grid(column=0, row=0)
+init_describe_button_gui(frames[4])
 
 
 # zadanie 6
