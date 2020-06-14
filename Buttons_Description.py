@@ -8,7 +8,7 @@ def init_describe_button_gui(frame):
     title.grid(column=0, row=0)
     screen = Label(frame, text="", font=font.Font(size=20))
     screen.grid(column=0, row=1)
-    title3 = Label(frame, textvariable=var, font=font.Font(size=20))
+    title3 = Label(frame, textvariable=var,width=40, font=font.Font(size=20))
     title3.grid(column=0, row=2)
     
     var.set("Description")
@@ -49,12 +49,12 @@ def init_describe_button_gui(frame):
     Button8 = Button(frame, text="8", command = describe_button8)
 
     #placeing buttons
-    Button1.place(x=0, y=40)
-    Button2.place(x=20, y=40)
-    Button3.place(x=40, y=40)
-    Button4.place(x=60, y=40)
-    Button5.place(x=80, y=40)
-    Button6.place(x=100, y=40)
-    Button7.place(x=120, y=40)
-    Button8.place(x=140, y=40)
+    Button1.place(x=200, y=40)
+    Button2.place(x=240, y=40)
+    Button3.place(x=280, y=40)
+    Button4.place(x=320, y=40)
+    Button5.place(x=360, y=40)
+    Button6.place(x=400, y=40)
+    Button7.place(x=440, y=40)
+    Button8.place(x=480, y=40)
     

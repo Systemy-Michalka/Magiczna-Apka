@@ -39,7 +39,8 @@ def init_take_actions_gui(frame, serial_port):
     for col in range(8):
         # light = Label(actions_frame, text='S'+str(col+1), width=2, height=1, bg=TURN_OFF_COLOR)
         light = Button(text='S'+str(col+1), command=partial(sender_helper, ACTION_CODES[col]), background=TURN_ON_COLOR)
-        light.grid(column=col, row=1)
+        # light.grid(column=col, row=1)
+        light.place(x=200+col*40,y=355)
         actions_lights.append(light)
         actions_frame.grid_columnconfigure(col, minsize=40)
 
